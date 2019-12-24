@@ -1,0 +1,25 @@
+# Common configuration shared between all applications
+configserver:
+    name: Docker JHipster Registry
+    status: Connected to the JHipster Registry running in Docker
+
+jhipster:
+    security:
+        authentication:
+            jwt:
+              base64-secret: bXktc2VjcmV0LXRva2VuLXRvLWNoYW5nZS1pbi1wcm9kdWN0aW9uLWd1cmthbi1jYWtpci1jb21wdXRlci1lbmdpbmVlcg==
+              #secret: my-secret-token-to-change-in-production
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://${spring.cloud.config.username}:${spring.cloud.config.password}@localhost:8761/eureka/
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: local
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
